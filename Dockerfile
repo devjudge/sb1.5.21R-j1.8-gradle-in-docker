@@ -1,4 +1,9 @@
 FROM gradle:4.7.0-jdk8-alpine AS GRADLE_TOOL_CHAIN
+
+# Pre build commands
+USER root
+RUN apk add --no-cache curl
+
 COPY src /tmp/src/
 COPY build.gradle /tmp/
 COPY gradlew /tmp/
